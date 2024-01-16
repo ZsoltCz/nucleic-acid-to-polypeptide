@@ -2,7 +2,7 @@
 
 namespace NucleicAcidConverter.Service;
 
-public class AminoAcidProviderService
+public class AminoAcidProviderService : IAminoAcidProviderService
 {
     private static readonly IDictionary<AminoAcid, string[]> AminoAcidCodonMap = new Dictionary<AminoAcid, string[]>()
     {
@@ -28,4 +28,9 @@ public class AminoAcidProviderService
         { new AminoAcid("Valine", "Val", "V"), new string[] { "GUU", "GUC", "GUA", "GUG" } },
         { new AminoAcid("Stop Codon", "Stop", "*"), new string[] { "UAA", "UAG", "UGA" } }
     };
+
+    public AminoAcid GetAminoAcid(string codon)
+    {
+        return AminoAcidCodonMap.First(entry => entry.Value.Contains(codon)).Key;
+    }
 }
