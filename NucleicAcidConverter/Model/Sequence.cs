@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using NucleicAcidConverter.Enums;
 
 namespace NucleicAcidConverter.Model;
 
@@ -11,13 +12,21 @@ public record Sequence : IEnumerable<string>
 
     private readonly int _readingFrame;
 
+    public readonly SequenceType Type;
+
     public Sequence(string nucleotideSequence, int readingFrame)
     {
-        _nucleotideSequence = nucleotideSequence;
+        var sequenceType = ValidateSequence(nucleotideSequence);
+        if (sequenceType is null)
+        {
+            throw new ArgumentException("Sequence contains invalid characters");
+        }
+
+        Type = (SequenceType)sequenceType;
+        _nucleotideSequence = nucleotideSequence.ToUpper();
         //check for valid frame
         _readingFrame = readingFrame;
     }
-
 
     public IEnumerator<string> GetEnumerator()
     {
@@ -27,6 +36,23 @@ public record Sequence : IEnumerable<string>
     IEnumerator IEnumerable.GetEnumerator()
     {
         return GetEnumerator();
+    }
+
+    private SequenceType? ValidateSequence(string sequence)
+    {
+        var RnaChars = new [] { 'A', 'U', 'C', 'G' };
+        var DnaChars = new [] { 'A', 'T', 'C', 'G' };
+
+        if (sequence.ToUpper().All(RnaChars.Contains))
+        {
+            return SequenceType.RNA;
+        }
+        if (sequence.ToUpper().All(DnaChars.Contains))
+        {
+            return SequenceType.DNA;
+        }
+        
+        return null;
     }
 }
 
