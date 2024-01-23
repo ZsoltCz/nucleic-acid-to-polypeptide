@@ -8,11 +8,11 @@ namespace NucleicAcidConverter.Model;
 /// </summary>
 public record Sequence : IEnumerable<string>
 {
-    private readonly string _nucleotideSequence;
+    public string NucleotideSequence { get; }
 
-    private readonly int _readingFrame;
+    public int ReadingFrame { get; }
 
-    public readonly SequenceType Type;
+    public SequenceType Type { get; }
 
     public Sequence(string nucleotideSequence, int readingFrame = 0)
     {
@@ -23,14 +23,14 @@ public record Sequence : IEnumerable<string>
         }
 
         Type = (SequenceType)sequenceType;
-        _nucleotideSequence = nucleotideSequence.ToUpper();
+        NucleotideSequence = nucleotideSequence.ToUpper();
         //check for valid frame
-        _readingFrame = readingFrame;
+        ReadingFrame = readingFrame;
     }
 
     public IEnumerator<string> GetEnumerator()
     {
-        return new SequenceEnumerator(_nucleotideSequence, _readingFrame);
+        return new SequenceEnumerator(NucleotideSequence, ReadingFrame);
     }
 
     IEnumerator IEnumerable.GetEnumerator()
