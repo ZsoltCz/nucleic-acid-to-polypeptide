@@ -14,6 +14,11 @@ public class TranslatorService : ITranslatorService
 
     public IEnumerable<AminoAcid> TranslateSequence(Sequence sequence)
     {
+        if (sequence.Type == SequenceType.DNA)
+        {
+            sequence = TranslateDnaToRna(sequence);
+        }
+        
         return sequence.Select(_aminoAcidProvider.GetAminoAcid);
     }
 
