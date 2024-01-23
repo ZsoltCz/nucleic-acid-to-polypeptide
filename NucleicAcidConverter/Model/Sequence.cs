@@ -14,7 +14,7 @@ public record Sequence : IEnumerable<string>
 
     public readonly SequenceType Type;
 
-    public Sequence(string nucleotideSequence, int readingFrame)
+    public Sequence(string nucleotideSequence, int readingFrame = 0)
     {
         var sequenceType = ValidateSequence(nucleotideSequence);
         if (sequenceType is null)
