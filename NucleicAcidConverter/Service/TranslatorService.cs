@@ -1,4 +1,5 @@
-﻿using NucleicAcidConverter.Model;
+﻿using NucleicAcidConverter.Enums;
+using NucleicAcidConverter.Model;
 
 namespace NucleicAcidConverter.Service;
 
@@ -14,5 +15,11 @@ public class TranslatorService : ITranslatorService
     public IEnumerable<AminoAcid> TranslateSequence(Sequence sequence)
     {
         return sequence.Select(_aminoAcidProvider.GetAminoAcid);
+    }
+
+    private Sequence TranslateDnaToRna(Sequence sequence)
+    {
+        return new Sequence(sequence.NucleotideSequence.Replace("t", "u", StringComparison.InvariantCultureIgnoreCase),
+            sequence.ReadingFrame);
     }
 }
