@@ -17,7 +17,7 @@ public class TranslatorService : ITranslatorService
         return sequence.Select(_aminoAcidProvider.GetAminoAcid);
     }
 
-    private Sequence TranslateDnaToRna(Sequence sequence)
+    private static Sequence TranslateDnaToRna(Sequence sequence)
     {
         return new Sequence(sequence.NucleotideSequence.Replace("t", "u", StringComparison.InvariantCultureIgnoreCase),
             sequence.ReadingFrame);
