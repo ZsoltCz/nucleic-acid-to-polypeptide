@@ -6,10 +6,11 @@ namespace NucleicAcidConverter.Test;
 public class TranslatorServiceTest
 {
     private ITranslatorService _translatorService;
-
-    public TranslatorServiceTest(ITranslatorService translatorService)
+    
+    [OneTimeSetUp]
+    public void Init()
     {
-        IAminoAcidProviderService aminoAcidProvider = new AminoAcidProviderService();
-        _translatorService = new TranslatorService(aminoAcidProvider);
+        var aminoAcidProviderService = new AminoAcidProviderService();
+        _translatorService = new TranslatorService(aminoAcidProviderService);
     }
 }
