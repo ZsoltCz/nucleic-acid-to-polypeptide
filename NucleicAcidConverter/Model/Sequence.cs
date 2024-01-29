@@ -54,6 +54,11 @@ public record Sequence : IEnumerable<string>
         
         return null;
     }
+
+    private bool ReadingFrameIsValid(int readingFrame)
+    {
+        return Enumerable.Range(0, 2).Contains(readingFrame);
+    }
 }
 
 public class SequenceEnumerator : IEnumerator<string>
