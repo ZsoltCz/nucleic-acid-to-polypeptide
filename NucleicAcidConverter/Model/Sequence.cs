@@ -42,7 +42,7 @@ public record Sequence : IEnumerable<string>
         return GetEnumerator();
     }
 
-    private SequenceType? ValidateSequence(string sequence)
+    private static SequenceType? ValidateSequence(string sequence)
     {
         var RnaChars = new [] { 'A', 'U', 'C', 'G' };
         var DnaChars = new [] { 'A', 'T', 'C', 'G' };
@@ -59,7 +59,7 @@ public record Sequence : IEnumerable<string>
         return null;
     }
 
-    private bool ReadingFrameIsValid(int readingFrame)
+    private static bool ReadingFrameIsValid(int readingFrame)
     {
         return Enumerable.Range(0, 3).Contains(readingFrame);
     }
