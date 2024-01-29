@@ -24,7 +24,11 @@ public record Sequence : IEnumerable<string>
 
         Type = (SequenceType)sequenceType;
         NucleotideSequence = nucleotideSequence.ToUpper();
-        //check for valid frame
+        if (!ReadingFrameIsValid(readingFrame))
+        {
+            throw new ArgumentException("Invalid reading frame");
+        }
+
         ReadingFrame = readingFrame;
     }
 
