@@ -57,7 +57,7 @@ public record Sequence : IEnumerable<string>
 
     private bool ReadingFrameIsValid(int readingFrame)
     {
-        return Enumerable.Range(0, 2).Contains(readingFrame);
+        return Enumerable.Range(0, 3).Contains(readingFrame);
     }
 }
 
