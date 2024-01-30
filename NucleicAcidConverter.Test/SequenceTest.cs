@@ -8,7 +8,9 @@ public class SequenceTest
 {
     private static readonly object[] EnumerationTestCases =
     {
-        
+        new object[] { "AATAATG", 0, new List<string> { "AAT", "AAT" } },
+        new object[] { "AATAATG", 1, new List<string> { "ATA", "ATG" } },
+        new object[] { "AATAATG", 2, new List<string> { "TAA" } }
     };
     
     private static readonly object[] TypeTestCases =
