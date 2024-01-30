@@ -6,6 +6,11 @@ namespace NucleicAcidConverter.Test;
 [TestFixture]
 public class SequenceTest
 {
+    private static readonly object[] EnumerationTestCases =
+    {
+        
+    };
+    
     private static readonly object[] TypeTestCases =
     {
         new object[] { "ATCATGAAGTTAGTAGTCAG", SequenceType.DNA },
@@ -20,19 +25,14 @@ public class SequenceTest
         new object[] { "UGCAUGCAUGCAUGCAUGCA", SequenceType.RNA },
     };
     
-    [Test]
-    public void EnumeratesCorrectly()
+    [TestCaseSource(nameof(EnumerationTestCases))]
+    public void EnumeratesCorrectly(string nucleotideSequence, int readingFrame, List<string> expectedResult)
     {
-        var sequence = new Sequence("AATAATG", 1);
+        var sequence = new Sequence(nucleotideSequence, readingFrame);
 
         var actual = sequence.ToList();
-        var expected = new List<string>()
-        {
-            "ATA",
-            "ATG"
-        };
         
-        Assert.That(actual, Is.EquivalentTo(expected));
+        Assert.That(actual, Is.EqualTo(expectedResult));
     }
 
     [TestCaseSource(nameof(TypeTestCases))]
