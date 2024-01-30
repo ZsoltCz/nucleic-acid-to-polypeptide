@@ -16,8 +16,8 @@ public class SequenceController : ControllerBase
 
     [HttpGet]
     [Route("translate")]
-    public IEnumerable<AminoAcid> Translate(Sequence sequence)
+    public ActionResult<IEnumerable<AminoAcid>> Translate(Sequence sequence)
     {
-        return _translatorService.TranslateSequence(sequence);
+        return Ok(_translatorService.TranslateSequence(sequence));
     }
 }
