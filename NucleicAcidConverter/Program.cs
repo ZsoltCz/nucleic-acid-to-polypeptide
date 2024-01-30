@@ -1,3 +1,5 @@
+using NucleicAcidConverter.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +8,9 @@ builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttri
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddTransient<IAminoAcidProviderService, AminoAcidProviderService>();
+builder.Services.AddTransient<ITranslatorService, TranslatorService>();
 
 var app = builder.Build();
 
