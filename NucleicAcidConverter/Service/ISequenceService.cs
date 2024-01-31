@@ -4,5 +4,5 @@ namespace NucleicAcidConverter.Service;
 
 public interface ISequenceService
 {
-    public Sequence CreateSequence(SequenceDto sequence);
+    public Sequence CreateSequence(SequenceDto sequenceDto);
 }
