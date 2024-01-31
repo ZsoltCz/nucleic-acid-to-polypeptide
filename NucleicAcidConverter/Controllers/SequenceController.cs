@@ -8,16 +8,27 @@ namespace NucleicAcidConverter.Controllers;
 public class SequenceController : ControllerBase
 {
     private readonly ITranslatorService _translatorService;
+    private readonly ISequenceService _sequenceService;
 
-    public SequenceController(ITranslatorService translatorService)
+    public SequenceController(ITranslatorService translatorService, ISequenceService sequenceService)
     {
         _translatorService = translatorService;
+        _sequenceService = sequenceService;
     }
 
     [HttpGet]
     [Route("translate")]
-    public ActionResult<IEnumerable<AminoAcid>> Translate(Sequence sequence)
+    public ActionResult<IEnumerable<AminoAcid>> Translate([FromQuery]SequenceDto sequenceDto)
     {
-        return Ok(_translatorService.TranslateSequence(sequence));
+        try
+        {
+            var sequence = _sequenceService.CreateSequence(sequenceDto);
+            var polypeptideChain = _translatorService.TranslateSequence(sequence);
+            return Ok(polypeptideChain);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e);
+        }
     }
 }
