@@ -11,6 +11,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IAminoAcidProviderService, AminoAcidProviderService>();
 builder.Services.AddTransient<ITranslatorService, TranslatorService>();
+builder.Services.AddTransient<ISequenceService, SequenceService>();
 
 var app = builder.Build();
 
