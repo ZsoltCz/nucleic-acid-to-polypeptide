@@ -261,3 +261,5 @@ _Pvt_Extensions
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+*.env
