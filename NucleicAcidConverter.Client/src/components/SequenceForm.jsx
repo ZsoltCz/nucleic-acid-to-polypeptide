@@ -34,6 +34,11 @@ export default function SequenceForm({ setTranslationResult }) {
     event.preventDefault();
     try {
       const response = await fetch(`http://localhost:5007/translate?NucleotideSequence=${sequence.nucleotideSequence}&ReadingFrame=${sequence.readingFrame}`);
+      if (!response.ok) {
+        setTranslationResult([]);
+        const message = await response.text();
+        throw new Error(message);
+      }
       const aminoAcids = await response.json();
       setTranslationResult(aminoAcids);
     } catch (error) {
@@ -70,4 +75,4 @@ export default function SequenceForm({ setTranslationResult }) {
       </FormControl>
     </form>
   );
-}
+};
