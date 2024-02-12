@@ -10,7 +10,7 @@ import { useState } from "react";
 
 const readingFrames = [0, 1, 2];
 
-export default function SequenceForm({ setTranslationResult }) {
+export default function SequenceForm({ setTranslationResult, displayedProperty, setDisplayedProperty }) {
 
   const [sequence, setSequence] = useState({
     nucleotideSequence: "",
@@ -61,11 +61,29 @@ export default function SequenceForm({ setTranslationResult }) {
         />
       </FormControl>
       <FormControl>
-        <InputLabel htmlFor="reading-frame">Reading frame</InputLabel>
-        <Select defaultValue={0} name="readingFrame" onChange={handleChange}>
+        <InputLabel id="reading-frame-label">Reading frame</InputLabel>
+        <Select
+          labelId="reading-frame-label"
+          value={sequence.readingFrame}
+          label="Reading frame"
+          name="readingFrame"
+          onChange={handleChange}
+        >
           {readingFrames.map((readingFrame) => (
-            <MenuItem key={readingFrame} value={readingFrame}>{readingFrame + 1}</MenuItem>
+            <MenuItem key={readingFrame} value={readingFrame}>
+              {readingFrame + 1}
+            </MenuItem>
           ))}
+        </Select>
+      </FormControl>
+      <FormControl>
+        <InputLabel id="displayed-property-label">
+          Amino acid display
+        </InputLabel>
+        <Select value={displayedProperty} labelId="displayed-property-label">
+          <MenuItem value="name">Name</MenuItem>
+          <MenuItem value="threeLetterSymbol">Three letter symbol</MenuItem>
+          <MenuItem value="oneLetterSymbol">One letter symbol</MenuItem>
         </Select>
       </FormControl>
       <FormControl>

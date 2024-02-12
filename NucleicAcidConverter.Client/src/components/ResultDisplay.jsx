@@ -3,9 +3,9 @@ const divStyleTemp = {
   marginRight: "15px"
 };
 
-export default function ResultDisplay({ translationResult }) {
+export default function ResultDisplay({ translationResult, displayedProperty }) {
   
   return (
-    translationResult.map((aminoAcid, index) => <div key={index} style={divStyleTemp}>{aminoAcid.name}</div>)
+    translationResult.map((aminoAcid, index) => <div key={index} style={divStyleTemp}>{aminoAcid[displayedProperty]}</div>)
   );
 };
