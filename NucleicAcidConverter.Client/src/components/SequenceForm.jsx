@@ -26,6 +26,10 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
     });
   };
 
+  const handleDisplayChange = (event) => {
+    setDisplayedProperty(event.target.value);
+  };
+
   const formStyleTemp = {
     marginTop: "20px"
   }
@@ -80,7 +84,11 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
         <InputLabel id="displayed-property-label">
           Amino acid display
         </InputLabel>
-        <Select value={displayedProperty} labelId="displayed-property-label">
+        <Select
+          value={displayedProperty}
+          labelId="displayed-property-label"
+          onChange={handleDisplayChange}
+        >
           <MenuItem value="name">Name</MenuItem>
           <MenuItem value="threeLetterSymbol">Three letter symbol</MenuItem>
           <MenuItem value="oneLetterSymbol">One letter symbol</MenuItem>
