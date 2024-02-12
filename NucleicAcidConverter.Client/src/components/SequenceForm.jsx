@@ -17,7 +17,7 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
     readingFrame: 0
   });
 
-  const handleChange = (event) => {
+  const handleSequenceChange = (event) => {
     setSequence(prevSequence => {
       return {
         ...prevSequence,
@@ -56,7 +56,7 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
           multiline
           rows="4"
           name="nucleotideSequence"
-          onChange={handleChange}
+          onChange={handleSequenceChange}
           value={sequence.nucleotideSequence}
         />
       </FormControl>
@@ -67,7 +67,7 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
           value={sequence.readingFrame}
           label="Reading frame"
           name="readingFrame"
-          onChange={handleChange}
+          onChange={handleSequenceChange}
         >
           {readingFrames.map((readingFrame) => (
             <MenuItem key={readingFrame} value={readingFrame}>
