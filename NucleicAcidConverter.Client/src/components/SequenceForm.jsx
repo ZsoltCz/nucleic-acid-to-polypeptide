@@ -10,7 +10,7 @@ import { useState } from "react";
 
 const readingFrames = [0, 1, 2];
 
-export default function SequenceForm({ setTranslationResult, displayedProperty, setDisplayedProperty }) {
+export default function SequenceForm({ setTranslationResult, displayedProperty, setDisplayedProperty, setLoading }) {
 
   const [sequence, setSequence] = useState({
     nucleotideSequence: "",
@@ -34,18 +34,35 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
     marginTop: "20px"
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const fetchWithTimeout = async (url, timeout = 8000) => {
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeout);
+
     try {
-      const response = await fetch(`http://localhost:5007/translate?NucleotideSequence=${sequence.nucleotideSequence}&ReadingFrame=${sequence.readingFrame}`);
+      const response = await fetch(url);
+      clearTimeout(id);
       if (!response.ok) {
-        setTranslationResult([]);
         const message = await response.text();
         throw new Error(message);
       }
-      const aminoAcids = await response.json();
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      clearTimeout(id);
+      throw error;
+    };
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    try {
+      const aminoAcids = await fetchWithTimeout(`http://localhost:5007/translate?NucleotideSequence=${sequence.nucleotideSequence}&ReadingFrame=${sequence.readingFrame}`);
+      setLoading(false);
       setTranslationResult(aminoAcids);
     } catch (error) {
+      setTranslationResult([]);
+      setLoading(false);
       console.error(error);
     };
   };
