@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
+const serverUrl = import.meta.env.VITE_SERVER_URL;
 const readingFrames = [0, 1, 2];
 
 export default function SequenceForm({ setTranslationResult, displayedProperty, setDisplayedProperty, setLoading }) {
@@ -57,7 +58,7 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
     event.preventDefault();
     setLoading(true);
     try {
-      const aminoAcids = await fetchWithTimeout(`http://localhost:5007/translate?NucleotideSequence=${sequence.nucleotideSequence}&ReadingFrame=${sequence.readingFrame}`);
+      const aminoAcids = await fetchWithTimeout(`${serverUrl}/translate?NucleotideSequence=${sequence.nucleotideSequence}&ReadingFrame=${sequence.readingFrame}`);
       setLoading(false);
       setTranslationResult(aminoAcids);
     } catch (error) {
