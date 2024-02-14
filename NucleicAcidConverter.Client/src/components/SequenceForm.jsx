@@ -124,6 +124,7 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
                 <Select
                   value={displayedProperty}
                   labelId="displayed-property-label"
+                  label="Amino acid display"
                   onChange={handleDisplayChange}
                 >
                   <MenuItem value="name">Name</MenuItem>
