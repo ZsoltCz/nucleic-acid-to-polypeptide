@@ -75,7 +75,7 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
       <form style={formStyleTemp} onSubmit={handleSubmit}>
         <Grid container spacing={2}>
           <Grid container direction="column" spacing={2} item xs={6}>
-            <Grid item xs={6}>
+            <Grid item>
               <FormControl fullWidth>
                 <TextField
                   label="DNA or RNA sequence"
@@ -89,7 +89,7 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
                 />
               </FormControl>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item>
               <FormControl fullWidth>
                 <Button type="submit" variant="outlined">
                   Translate
@@ -98,7 +98,7 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
             </Grid>
           </Grid>
           <Grid container direction="column" spacing={2} item xs={6}>
-            <Grid item xs={1}>
+            <Grid item>
               <FormControl fullWidth>
                 <InputLabel id="reading-frame-label">Reading frame</InputLabel>
                 <Select
@@ -116,7 +116,7 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={1}>
+            <Grid item>
               <FormControl fullWidth>
                 <InputLabel id="displayed-property-label">
                   Amino acid display
