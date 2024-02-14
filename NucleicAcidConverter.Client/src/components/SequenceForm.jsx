@@ -1,6 +1,7 @@
 import {
   Button,
   FormControl,
+  Grid,
   InputLabel,
   MenuItem,
   Select,
@@ -70,53 +71,67 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
 
   return (
     <form style={formStyleTemp} onSubmit={handleSubmit}>
-      <FormControl>
-        <TextField
-          label="DNA or RNA sequence"
-          id="nucleotide-sequence"
-          required
-          multiline
-          rows="4"
-          name="nucleotideSequence"
-          onChange={handleSequenceChange}
-          value={sequence.nucleotideSequence}
-        />
-      </FormControl>
-      <FormControl>
-        <InputLabel id="reading-frame-label">Reading frame</InputLabel>
-        <Select
-          labelId="reading-frame-label"
-          value={sequence.readingFrame}
-          label="Reading frame"
-          name="readingFrame"
-          onChange={handleSequenceChange}
-        >
-          {readingFrames.map((readingFrame) => (
-            <MenuItem key={readingFrame} value={readingFrame}>
-              {readingFrame + 1}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <FormControl>
-        <InputLabel id="displayed-property-label">
-          Amino acid display
-        </InputLabel>
-        <Select
-          value={displayedProperty}
-          labelId="displayed-property-label"
-          onChange={handleDisplayChange}
-        >
-          <MenuItem value="name">Name</MenuItem>
-          <MenuItem value="threeLetterSymbol">Three letter symbol</MenuItem>
-          <MenuItem value="oneLetterSymbol">One letter symbol</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl>
-        <Button type="submit" variant="outlined">
-          Translate
-        </Button>
-      </FormControl>
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <FormControl fullWidth>
+            <TextField
+              label="DNA or RNA sequence"
+              id="nucleotide-sequence"
+              required
+              multiline
+              rows="4"
+              name="nucleotideSequence"
+              onChange={handleSequenceChange}
+              value={sequence.nucleotideSequence}
+            />
+          </FormControl>
+        </Grid>
+        <Grid container direction="column" spacing={2} item xs={6}>
+          <Grid item xs={1}>
+            <FormControl fullWidth>
+              <InputLabel id="reading-frame-label">Reading frame</InputLabel>
+              <Select
+                labelId="reading-frame-label"
+                value={sequence.readingFrame}
+                label="Reading frame"
+                name="readingFrame"
+                onChange={handleSequenceChange}
+              >
+                {readingFrames.map((readingFrame) => (
+                  <MenuItem key={readingFrame} value={readingFrame}>
+                    {readingFrame + 1}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={1}>
+            <FormControl fullWidth>
+              <InputLabel id="displayed-property-label">
+                Amino acid display
+              </InputLabel>
+              <Select
+                value={displayedProperty}
+                labelId="displayed-property-label"
+                onChange={handleDisplayChange}
+              >
+                <MenuItem value="name">Name</MenuItem>
+                <MenuItem value="threeLetterSymbol">
+                  Three letter symbol
+                </MenuItem>
+                <MenuItem value="oneLetterSymbol">One letter symbol</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={1}>
+            <FormControl fullWidth>
+              <Button type="submit" variant="outlined">
+                Translate
+              </Button>
+            </FormControl>
+          </Grid>
+        </Grid>
+      </Grid>
     </form>
   );
 };
