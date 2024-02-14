@@ -72,19 +72,28 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
   return (
     <form style={formStyleTemp} onSubmit={handleSubmit}>
       <Grid container spacing={2}>
-        <Grid item xs={6}>
-          <FormControl fullWidth>
-            <TextField
-              label="DNA or RNA sequence"
-              id="nucleotide-sequence"
-              required
-              multiline
-              rows="4"
-              name="nucleotideSequence"
-              onChange={handleSequenceChange}
-              value={sequence.nucleotideSequence}
-            />
-          </FormControl>
+        <Grid container direction="column" spacing={2} item xs={6}>
+          <Grid item xs={6}>
+            <FormControl fullWidth>
+              <TextField
+                label="DNA or RNA sequence"
+                id="nucleotide-sequence"
+                required
+                multiline
+                rows="4"
+                name="nucleotideSequence"
+                onChange={handleSequenceChange}
+                value={sequence.nucleotideSequence}
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={3}>
+            <FormControl fullWidth>
+              <Button type="submit" variant="outlined">
+                Translate
+              </Button>
+            </FormControl>
+          </Grid>
         </Grid>
         <Grid container direction="column" spacing={2} item xs={6}>
           <Grid item xs={1}>
@@ -121,13 +130,6 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
                 </MenuItem>
                 <MenuItem value="oneLetterSymbol">One letter symbol</MenuItem>
               </Select>
-            </FormControl>
-          </Grid>
-          <Grid item xs={1}>
-            <FormControl fullWidth>
-              <Button type="submit" variant="outlined">
-                Translate
-              </Button>
             </FormControl>
           </Grid>
         </Grid>
