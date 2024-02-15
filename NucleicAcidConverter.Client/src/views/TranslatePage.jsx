@@ -1,7 +1,6 @@
 import { useState } from "react";
 import SequenceForm from "../components/SequenceForm";
 import ResultDisplay from "../components/ResultDisplay";
-import { CircularProgress } from "@mui/material";
 
 export default function TranslatePage() {
   const [translationResult, setTranslationResult] = useState([]);
@@ -16,14 +15,11 @@ export default function TranslatePage() {
         setDisplayedProperty={setDisplayedProperty}
         setLoading={setLoading}
       />
-      {loading ? (
-        <CircularProgress />
-      ) : (
-        <ResultDisplay
-          translationResult={translationResult}
-          displayedProperty={displayedProperty}
-        />
-      )}
+      <ResultDisplay
+        displayedProperty={displayedProperty}
+        loading={loading}
+        translationResult={translationResult}
+      />
     </>
   );
 }
