@@ -74,7 +74,7 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
     <Container>
       <form style={formStyleTemp} onSubmit={handleSubmit}>
         <Grid container spacing={2}>
-          <Grid container direction="column" spacing={2} item xs={6}>
+          <Grid container direction="column" spacing={2} item xs={8}>
             <Grid item>
               <FormControl fullWidth>
                 <TextField
@@ -97,7 +97,7 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
               </FormControl>
             </Grid>
           </Grid>
-          <Grid container direction="column" spacing={2} item xs={6}>
+          <Grid container direction="column" spacing={2} item xs={2}>
             <Grid item>
               <FormControl fullWidth>
                 <InputLabel id="reading-frame-label">Reading frame</InputLabel>
