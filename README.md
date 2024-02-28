@@ -37,8 +37,9 @@ This a work in progress full stack / devops project that allows users to transla
 ### Built with
 
 * [![ASP.NET][ASP.NET-shield]][ASP.NET-url]
-* React.js
-* Material UI
+* [![React][React-shield]][React-url]
+* [![Vite][Vite-shield]][Vite-url]
+* [![MUI][MUI-shield]][MUI-url]
 * Dotenv
 * Github Actions
 
@@ -67,4 +68,9 @@ _work in progress_
 <!-- MARKDOWN LINKS & IMAGES -->
 [ASP.NET-url]: https://dotnet.microsoft.com/en-us/apps/aspnet
 [ASP.NET-shield]: https://img.shields.io/badge/Asp.NET-%23512BD4?style=for-the-badge&logo=.NET
-
+[React-url]: https://react.dev/
+[React-shield]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[Vite-url]: https://vitejs.dev/
+[Vite-shield]: https://img.shields.io/badge/vite-%23646CFF?style=for-the-badge&logo=Vite&logoColor=yellow
+[MUI-url]: https://mui.com/
+[MUI-shield]: https://img.shields.io/badge/Material%20UI-black?style=for-the-badge&logo=mui&logoColor=%23007FFF
