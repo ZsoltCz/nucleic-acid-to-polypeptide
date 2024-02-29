@@ -40,8 +40,7 @@ This a work in progress full stack / devops project that allows users to transla
 * [![React][React-shield]][React-url]
 * [![Vite][Vite-shield]][Vite-url]
 * [![MUI][MUI-shield]][MUI-url]
-* Dotenv
-* Github Actions
+* [![GithubActions][GithubActions-shield]][GithubActions-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -74,3 +73,5 @@ _work in progress_
 [Vite-shield]: https://img.shields.io/badge/vite-%23646CFF?style=for-the-badge&logo=Vite&logoColor=yellow
 [MUI-url]: https://mui.com/
 [MUI-shield]: https://img.shields.io/badge/Material%20UI-black?style=for-the-badge&logo=mui&logoColor=%23007FFF
+[GithubActions-url]: https://github.com/features/actions
+[GithubActions-shield]: https://img.shields.io/badge/github_actions-white?style=for-the-badge&logo=githubactions
