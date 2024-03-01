@@ -46,6 +46,20 @@ This a work in progress full stack / devops project that allows users to transla
 
 
 
+<!-- GETTING STARTED -->
+## Getting Started
+
+To launch your own local instance of the web app follow the steps below!
+
+### Prerequisites
+
+Make sure you have npm and dotnet installed.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+* dotnet
+
 ### Installation
 
 1. 
