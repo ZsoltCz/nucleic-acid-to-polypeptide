@@ -1,4 +1,4 @@
-import { CircularProgress, Container, List, ListItem, Typography } from "@mui/material";
+import { Box, CircularProgress, Container, Typography } from "@mui/material";
 
 const divStyleTemp = {
   display: "inline"
@@ -7,20 +7,19 @@ const divStyleTemp = {
 export default function ResultDisplay({ translationResult, displayedProperty, loading }) {
   
   return (
-    <Container>
-      {loading ? (
-        <CircularProgress />
-      ) : (
-        <Typography>
-          <List>
-            {translationResult.map((aminoAcid, index) => (
-              <ListItem key={index} style={divStyleTemp}>
-                {aminoAcid[displayedProperty]}
-              </ListItem>
-            ))}
-          </List>
-        </Typography>
-      )}
+    <Container sx={{ marginTop: 2 }}>
+      <Typography>Result:</Typography>
+      <Box p={2} sx={{ border: "2px solid grey" }}>
+        {loading ? (
+          <CircularProgress />
+        ) : (
+          <Typography>
+            {translationResult
+              .map((aminoAcid) => aminoAcid[displayedProperty])
+              .join(" - ")}
+          </Typography>
+        )}
+      </Box>
     </Container>
   );
-};
+}
