@@ -1,9 +1,5 @@
 import { Box, CircularProgress, Container, Grid, Typography } from "@mui/material";
 
-const divStyleTemp = {
-  display: "inline"
-};
-
 export default function ResultDisplay({ translationResult, displayedProperty, loading }) {
   
   return (
@@ -13,7 +9,7 @@ export default function ResultDisplay({ translationResult, displayedProperty, lo
           <Typography>Result:</Typography>
         </Grid>
         <Grid item xs={10}>
-          <Box p={2} sx={{ border: "2px solid grey" }}>
+          <Box p={2} sx={{ border: "2px solid grey", borderRadius: 1 }}>
             {loading ? (
               <CircularProgress />
             ) : (
