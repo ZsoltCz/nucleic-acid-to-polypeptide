@@ -80,9 +80,13 @@ If one of them is missing, you can install them with the following commands:
   git clone https://github.com/ZsoltCz/nucleic-acid-to-polypeptide.git
   ```
 
-2. Resolve dependencies
+2. Install dependencies
 
+  ```sh
+  ./init.sh
+  ```
 
+3. Run
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
