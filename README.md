@@ -49,21 +49,40 @@ This a work in progress full stack / devops project that allows users to transla
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To launch your own local instance of the web app follow the steps below!
+Follow the steps below to launch your own local instance of the web app!
 
 ### Prerequisites
 
-Make sure you have npm and dotnet installed.
+Make sure you have npm and dotnet installed. You can check this using the following commands:
+```sh
+npm -v
+```
+```sh
+dotnet --version
+```
+
+If one of them is missing, you can install them with the following commands:
 * npm
+
   ```sh
-  npm install npm@latest -g
+  curl -qL https://www.npmjs.com/install.sh | sh
   ```
+
 * dotnet
+
+  [Install dotnet on your OS of choice][.NET-install-url]
 
 ### Installation
 
-1. 
-2. 
+1. Clone the repository
+
+  ```sh
+  git clone https://github.com/ZsoltCz/nucleic-acid-to-polypeptide.git
+  ```
+
+2. Resolve dependencies
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -89,3 +108,4 @@ _work in progress_
 [MUI-shield]: https://img.shields.io/badge/Material%20UI-black?style=for-the-badge&logo=mui&logoColor=%23007FFF
 [GithubActions-url]: https://github.com/features/actions
 [GithubActions-shield]: https://img.shields.io/badge/github_actions-white?style=for-the-badge&logo=githubactions
+[.NET-install-url]: https://learn.microsoft.com/en-us/dotnet/core/install/linux
