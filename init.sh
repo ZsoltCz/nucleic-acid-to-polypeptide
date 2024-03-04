@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Install client side dependencies
-npm --prefix ./NucleicAcidConverter.Client install ./NucleicAcidConverter.Client
+(cd NucleicAcidConverter.Client && npm i)
 echo "Client side dependencies installed successfully"
 
 # Install server side dependencies
-dotnet
+(cd NucleicAcidConverter && dotnet restore)
+echo "Server side dependencies installed successfully"
