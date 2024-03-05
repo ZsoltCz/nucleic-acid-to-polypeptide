@@ -86,7 +86,7 @@ If one of them is missing, you can install them with the following commands:
   ./init.sh
   ```
 
-3. Run
+3. To run the server, navigate to the _NucleicAcidConverter_ folder
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -95,7 +95,15 @@ If one of them is missing, you can install them with the following commands:
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-_work in progress_
+To translate a DNA or RNA sequence with the application, you can follow these steps:
+
+1. Navigate to the user interface.
+
+2. Type a DNA or RNA sequence that you'd like to translate.
+
+3. Select the format you wish to see the amino acid sequence in (you can also do this after the next step)
+
+4. Press the _Translate_ button to translate your sequence.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
