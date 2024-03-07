@@ -13,7 +13,7 @@ export default function ResultDisplay({ translationResult, displayedProperty, lo
             {loading ? (
               <CircularProgress />
             ) : (
-              <Typography>
+              <Typography data-testid="result-display">
                 {translationResult
                   .map((aminoAcid) => aminoAcid[displayedProperty])
                   .join(" - ")}
