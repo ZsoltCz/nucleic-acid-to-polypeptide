@@ -6,7 +6,7 @@ describe("ResultDisplay", () => {
 
   test("displays correct result", () => {
   
-    let props = {
+    const props = {
       translationResult: [
         {
           name: "Asparagine"
@@ -20,8 +20,8 @@ describe("ResultDisplay", () => {
     };
   
     render(<ResultDisplay {...props} />);
-    screen.debug();
     const resultElement = screen.getByTestId("result-display");
+    
     expect(resultElement.textContent).toBe("Asparagine - Lysine");
   });
 });
