@@ -33,10 +33,6 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
     setDisplayedProperty(event.target.value);
   };
 
-  const formStyleTemp = {
-    marginTop: "20px"
-  }
-
   const fetchWithTimeout = async (url, timeout = 8000) => {
     const controller = new AbortController();
     const id = setTimeout(() => controller.abort(), timeout);
@@ -71,8 +67,8 @@ export default function SequenceForm({ setTranslationResult, displayedProperty, 
   };
 
   return (
-    <Container>
-      <form style={formStyleTemp} onSubmit={handleSubmit}>
+    <Container sx={{ marginTop: "20px" }}>
+      <form onSubmit={handleSubmit}>
         <Grid container spacing={2}>
           <Grid container direction="column" spacing={2} item xs={8}>
             <Grid item>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SequenceForm from "../components/SequenceForm";
 import ResultDisplay from "../components/ResultDisplay";
+import Instructions from "../components/Instructions";
 
 export default function TranslatePage() {
   const [translationResult, setTranslationResult] = useState([]);
@@ -9,6 +10,7 @@ export default function TranslatePage() {
 
   return (
     <>
+      <Instructions />
       <SequenceForm
         setTranslationResult={setTranslationResult}
         displayedProperty={displayedProperty}
