@@ -86,7 +86,17 @@ If one of them is missing, you can install them with the following commands:
   ./init.sh
   ```
 
-3. To run the server, navigate to the _NucleicAcidConverter_ folder
+3. To run the server, open a bash terminal, navigate to the _NucleicAcidConverter_ folder and run the following command:
+
+```sh
+dotnet run
+```
+
+4. To run the client, go to the _NucleicAcidConverter.Client_ folder and run:
+
+```sh
+npm run dev
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,7 +111,7 @@ To translate a DNA or RNA sequence with the application, you can follow these st
 
 2. Type a DNA or RNA sequence that you'd like to translate.
 
-3. Select the format you wish to see the amino acid sequence in (you can also do this after the next step)
+3. Select the format you wish to see the amino acid sequence in (you can also do this after the next step).
 
 4. Press the _Translate_ button to translate your sequence.
 
